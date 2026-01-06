@@ -51,6 +51,16 @@ a:hover {
   text-decoration: none;
 }
 
+/* Tint imported SVG imgs to approximate current text color */
+.icon-filter {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(241%) hue-rotate(180deg) brightness(80%);
+  transition: filter 0.2s ease;
+}
+
+.icon-filter:hover {
+  filter: brightness(0) saturate(100%) invert(95%) sepia(3%) saturate(180%) hue-rotate(170deg) brightness(102%);
+}
+
 /* Subtle dashboard grid backdrop */
 .cc-grid {
   background-image: linear-gradient(rgb(var(--cc-border) / 0.22) 1px, transparent 1px),

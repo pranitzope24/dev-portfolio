@@ -4,6 +4,9 @@ import { scrollToId } from "../lib/scroll";
 import { Button } from "../components/Button";
 import { Badge } from "../components/Badge";
 import { SystemCoreFallback } from "../components/SystemCoreFallback";
+import githubSvg from "../assets/github.svg";
+import linkedinSvg from "../assets/linkedin.svg";
+import mailSvg from "../assets/mail.svg";
 
 const LazySystemCore = lazy(() => import("../components/SystemCoreLazy"));
 
@@ -30,9 +33,56 @@ export function Hero({ simpleView }: Props) {
             {!simpleView ? <Badge tone="purple">agentic::lab</Badge> : null}
           </div>
 
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight md:text-5xl">
-            {profile.name}
-          </h1>
+          <div className="mt-5 flex items-center justify-between gap-3">
+            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+              {profile.name}
+            </h1>
+            <div className="flex items-center gap-2 text-text/80">
+              {profile.links.github ? (
+                <a
+                  href={profile.links.github}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-xl transition hover:text-text"
+                  aria-label="GitHub"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={githubSvg}
+                    alt="GitHub"
+                    className="h-8 w-8 icon-filter"
+                  />
+                </a>
+              ) : null}
+              {profile.links.linkedin ? (
+                <a
+                  href={profile.links.linkedin}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-xl transition hover:text-text"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={linkedinSvg}
+                    alt="LinkedIn"
+                    className="h-8 w-8 icon-filter"
+                  />
+                </a>
+              ) : null}
+              {profile.links.email ? (
+                <a
+                  href={profile.links.email}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-xl transition hover:text-text"
+                  aria-label="Email"
+                >
+                  <img
+                    src={mailSvg}
+                    alt="Email"
+                    className="h-8 w-8 icon-filter"
+                  />
+                </a>
+              ) : null}
+            </div>
+          </div>
           <p className="mt-3 text-sm font-semibold text-muted md:text-base">
             {profile.role}
           </p>

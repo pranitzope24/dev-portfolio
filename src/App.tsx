@@ -1,4 +1,3 @@
-import { useEffect, useMemo, useState } from "react";
 import { TopBar } from "./components/TopBar";
 import { Hero } from "./sections/Hero";
 import { SystemOverview } from "./sections/SystemOverview";
@@ -10,36 +9,15 @@ import { SystemBootstrapping } from "./sections/SystemBootstrapping";
 import { Milestones } from "./sections/Milestones";
 import { BackgroundProcesses } from "./sections/BackgroundProcesses";
 import { SystemShutdown } from "./sections/SystemShutdown";
-
-const STORAGE_KEY = "cc.simpleView";
-
-function getInitialSimpleView() {
-  if (typeof window === "undefined") return false;
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  return raw === "1";
-}
+import { ScrollTopButton } from "./components/ScrollTopButton";
 
 function App() {
-  const [simpleView, setSimpleView] = useState(getInitialSimpleView);
-
-  useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, simpleView ? "1" : "0");
-  }, [simpleView]);
-
-  const pageCls = useMemo(
-    () =>
-      `min-h-screen bg-bg text-text ${
-        simpleView ? "" : "selection:bg-accent-blue/20"
-      }`,
-    [simpleView]
-  );
+  const simpleView = false;
+  const pageCls = "min-h-screen bg-bg text-text selection:bg-accent-blue/20";
 
   return (
     <div className={pageCls}>
-      <TopBar
-        simpleView={simpleView}
-        onToggleSimpleView={() => setSimpleView((v) => !v)}
-      />
+      <TopBar />
 
       <Hero simpleView={simpleView} />
 
@@ -55,6 +33,8 @@ function App() {
       </main>
 
       <SystemShutdown simpleView={simpleView} />
+
+      <ScrollTopButton />
     </div>
   );
 }
