@@ -22,7 +22,7 @@ export function Hero({ simpleView }: Props) {
         </div>
       ) : null}
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-10 md:grid-cols-2 md:py-14">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr] md:py-14">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge tone="green">SYSTEM ONLINE</Badge>
@@ -71,7 +71,7 @@ export function Hero({ simpleView }: Props) {
           </div>
         </div>
 
-        <div className="md:justify-self-end">
+        <div className="relative max-w-[520px] w-full justify-self-end">
           {simpleView ? (
             <SystemCoreFallback />
           ) : (
