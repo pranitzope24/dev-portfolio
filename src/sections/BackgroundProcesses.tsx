@@ -16,7 +16,7 @@ export function BackgroundProcesses({ simpleView }: Props) {
       right={!simpleView ? <Badge tone="teal">priority: low</Badge> : null}
     >
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4">
           {hobbies.map((h, idx) => (
             <div
               key={h.label}

@@ -35,12 +35,12 @@ export const profile = {
   stats: [
     { label: 'Experience', value: '1.5 yrs' },
     { label: 'Deployed Services', value: '6+' },
-    { label: 'Core Tech', value: 'TS • Python • Postgres' },
+    { label: 'Core Tech', value: 'TS • Python • Postgres • Agentic AI' },
   ],
   links: {
-    github: 'https://github.com/',
-    linkedin: 'https://www.linkedin.com/in/',
-    email: 'mailto:you@example.com',
+    github: 'https://github.com/pranitzope24',
+    linkedin: 'https://www.linkedin.com/in/pranitzope/',
+    email: 'mailto:pranit.t.zope@gmail.com',
   },
 }
 
@@ -105,8 +105,8 @@ export const experienceLogs: ExperienceLog[] = [
   {
     timestamp: '2024-07-01T09:10:00Z',
     title: 'Backend Engineer',
-    org: 'Company Name',
-    location: 'Remote',
+    org: 'Air India Limited',
+    location: 'On-Site',
     summary:
       'Maintained and extended backend services powering internal tooling and customer-facing workflows.',
     highlights: [
@@ -122,8 +122,8 @@ export const experienceLogs: ExperienceLog[] = [
   },
   {
     timestamp: '2023-10-10T09:10:00Z',
-    title: 'Backend Intern',
-    org: 'Company Name',
+    title: 'SDE Intern - Backend, Payments',
+    org: 'Nobroker Technologies Solutions Pvt Ltd',
     location: 'On-site',
     summary:
       'Built service features under supervision and learned production discipline from real incidents.',
@@ -180,7 +180,7 @@ export const projects: ProjectService[] = [
 
 export const education = {
   degree: 'B.Tech (Aerospace Engineering) + Minor in Comp Sci',
-  institution: 'Your University',
+  institution: 'Indian Institute of Technology Madras',
   years: '2020 — 2024',
   focus: ['Distributed systems basics', 'Databases', 'Operating systems', 'Networks'],
 }
@@ -192,8 +192,8 @@ export const achievements = [
 ]
 
 export const hobbies = [
-  { label: 'Strength training', hint: 'Keeps uptime high' },
-  { label: 'Reading systems blogs', hint: 'Continuous learning loop' },
-  { label: 'Chess', hint: 'Search + tradeoffs' },
-  { label: 'Music', hint: 'Background process' },
-]
+  { label: "Robotics", hint: "Physical systems & control loops" },
+  { label: "Swimming", hint: "Maintains system stability" },
+  { label: "Travelling", hint: "Explores new environments" },
+  { label: "Music", hint: "Non-blocking background process" },
+];
