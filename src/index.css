@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+
+  /* Control Center palette (RGB channels) */
+  --cc-bg: 11 14 20; /* deep graphite/slate */
+  --cc-panel: 16 20 29; /* slightly lighter */
+  --cc-border: 36 46 66;
+
+  --cc-text: 226 232 240;
+  --cc-muted: 148 163 184;
+
+  --cc-blue: 56 189 248;
+  --cc-teal: 45 212 191;
+  --cc-purple: 167 139 250;
+  --cc-green: 74 222 128;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: rgb(var(--cc-bg));
+  color: rgb(var(--cc-text));
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgb(var(--cc-blue) / 0.25);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Subtle dashboard grid backdrop */
+.cc-grid {
+  background-image: linear-gradient(rgb(var(--cc-border) / 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--cc-border) / 0.22) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 30%, black 0%, black 48%, transparent 72%);
+}
+
+/* Glass/panel primitive */
+.cc-panel {
+  background: rgb(var(--cc-panel) / 0.78);
+  border: 1px solid rgb(var(--cc-border) / 0.7);
+  backdrop-filter: blur(10px);
+}
