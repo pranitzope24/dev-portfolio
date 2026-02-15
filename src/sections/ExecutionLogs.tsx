@@ -1,6 +1,7 @@
-import { experienceLogs } from "../content";
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
+import { Section } from "../components/Section";
+import { SystemPulse } from "../components/SystemPulse";
+import { experienceLogs } from "../content";
 
 type Props = {
   simpleView: boolean;
@@ -27,11 +28,12 @@ export function ExecutionLogs({ simpleView }: Props) {
           {experienceLogs.map((e) => (
             <details
               key={`${e.org}-${e.title}-${e.timestamp}`}
-              className="group rounded-xl2 border border-border/60 bg-bg/20"
+              className="group rounded-xl2 border border-border/60 bg-bg/20 cc-surface"
             >
               <summary className="flex cursor-pointer list-none flex-col gap-2 px-5 py-4 md:flex-row md:items-center md:justify-between">
                 <div>
                   <div className="text-xs font-mono text-muted">
+                    <SystemPulse tone="teal" size="sm" ariaLabel="Log stream active" />
                     {!simpleView ? `[${fmt(e.timestamp)}]` : "entry"}{" "}
                     <span className="text-accent-teal">INFO</span>{" "}
                     <span className="text-text">{e.title}</span>
@@ -40,7 +42,7 @@ export function ExecutionLogs({ simpleView }: Props) {
                   <div className="mt-2 text-sm text-text/90">{e.summary}</div>
                 </div>
                 <div className="mt-1 flex items-center gap-2 md:mt-0">
-                  <span className="rounded-full border border-border/60 bg-panel/40 px-3 py-1 text-xs font-mono text-muted">
+                  <span className="rounded-full border border-border/60 bg-panel/40 px-3 py-1 text-xs font-mono text-muted cc-surface">
                     expand
                   </span>
                   <span className="text-xs font-mono text-muted transition group-open:rotate-180">
@@ -68,7 +70,7 @@ export function ExecutionLogs({ simpleView }: Props) {
                     {e.stack.map((s) => (
                       <span
                         key={s}
-                        className="rounded-full border border-border/60 bg-panel/30 px-3 py-1 text-xs font-semibold text-text"
+                        className="rounded-full border border-border/60 bg-panel/30 px-3 py-1 text-xs font-semibold text-text cc-surface"
                       >
                         {s}
                       </span>

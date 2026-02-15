@@ -1,5 +1,5 @@
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
+import { Section } from "../components/Section";
 
 type Props = {
   simpleView: boolean;
@@ -11,10 +11,10 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
       id="lab"
       title="Autonomous Systems Lab"
       subtitle="Agentic systems, explained like production software: orchestration, state, tools, and failure modes."
-      right={!simpleView ? <Badge tone="purple">lab: active</Badge> : null}
+      right={!simpleView ? <Badge tone="purple" pulse>lab: active</Badge> : null}
     >
       <div className="space-y-5 p-6">
-        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5">
+        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 cc-surface">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-mono text-muted">layer 1</div>
@@ -61,7 +61,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
               <div className="text-xs font-mono text-muted">
                 supervisor diagram
               </div>
-              <pre className="mt-2 overflow-auto rounded-xl border border-border/60 bg-panel/30 p-3 text-xs font-mono text-text/90">
+              <pre className="mt-2 overflow-auto rounded-xl border border-border/60 bg-panel/30 p-3 text-xs font-mono text-text/90 cc-surface">
                 {`┌──────────────┐
 │  Supervisor  │  decides next step, routes by state
 └──────┬───────┘
@@ -78,7 +78,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
           </div>
         </div>
 
-        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5">
+        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 cc-surface">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-mono text-muted">layer 2</div>
@@ -158,7 +158,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
           </div>
         </div>
 
-        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5">
+        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 cc-surface">
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="text-xs font-mono text-muted">layer 3</div>
@@ -170,7 +170,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
           </div>
 
           <div className="mt-4 space-y-3">
-            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3">
+            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3 cc-surface">
               <summary className="cursor-pointer text-sm font-semibold text-text">
                 Failure modes
               </summary>
@@ -198,7 +198,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
               </ul>
             </details>
 
-            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3">
+            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3 cc-surface">
               <summary className="cursor-pointer text-sm font-semibold text-text">
                 Guardrails
               </summary>
@@ -226,7 +226,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
               </ul>
             </details>
 
-            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3">
+            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3 cc-surface">
               <summary className="cursor-pointer text-sm font-semibold text-text">
                 Timeouts, retries, and budgets
               </summary>
@@ -247,7 +247,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
               </ul>
             </details>
 
-            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3">
+            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3 cc-surface">
               <summary className="cursor-pointer text-sm font-semibold text-text">
                 Observability and logging
               </summary>
@@ -275,7 +275,7 @@ export function AutonomousSystemsLab({ simpleView }: Props) {
               </ul>
             </details>
 
-            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3">
+            <details className="rounded-xl border border-border/60 bg-panel/25 px-4 py-3 cc-surface">
               <summary className="cursor-pointer text-sm font-semibold text-text">
                 Human-in-the-loop
               </summary>

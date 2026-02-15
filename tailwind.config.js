@@ -32,9 +32,51 @@ export default {
           '0%, 100%': { opacity: '0.55' },
           '50%': { opacity: '1' },
         },
+        heartbeat: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(74,222,128,0.4)' },
+          '70%': { boxShadow: '0 0 0 12px rgba(74,222,128,0)' },
+        },
+        heartbeatBlue: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(56,189,248,0.4)' },
+          '70%': { boxShadow: '0 0 0 12px rgba(56,189,248,0)' },
+        },
+        heartbeatPurple: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(167,139,250,0.4)' },
+          '70%': { boxShadow: '0 0 0 12px rgba(167,139,250,0)' },
+        },
+        systemPulse: {
+          '0%': {
+            transform: 'scale(1)',
+            opacity: '0.65',
+          },
+          '70%': {
+            transform: 'scale(2.8)',
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '0',
+          },
+        },
+        sectionReveal: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(12px)',
+            filter: 'blur(4px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+            filter: 'blur(0)',
+          },
+        },
       },
       animation: {
         pulseSoft: 'pulseSoft 2.2s ease-in-out infinite',
+        heartbeat: 'heartbeat 2.8s ease-in-out infinite',
+        heartbeatBlue: 'heartbeatBlue 2.8s ease-in-out infinite',
+        heartbeatPurple: 'heartbeatPurple 2.8s ease-in-out infinite',
+        'system-pulse': 'systemPulse 2s ease-out infinite',
+        'section-reveal': 'sectionReveal 300ms ease-out forwards',
       },
     },
   },

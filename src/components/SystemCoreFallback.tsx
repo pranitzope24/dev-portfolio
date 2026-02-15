@@ -1,6 +1,6 @@
 export function SystemCoreFallback() {
   return (
-    <div className="relative grid h-[340px] w-full place-items-center overflow-hidden rounded-xl2 border border-border/60 bg-panel/40">
+    <div className="relative grid h-[340px] w-full place-items-center overflow-hidden rounded-xl2 border border-border/60 bg-panel/40 cc-surface">
       <div className="absolute inset-0 opacity-60 cc-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(56,189,248,0.18),transparent_60%)]" />
       <svg width="220" height="220" viewBox="0 0 220 220" aria-hidden>

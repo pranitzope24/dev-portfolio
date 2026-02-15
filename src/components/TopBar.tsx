@@ -12,7 +12,7 @@ const nav = [
 
 export function TopBar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-bg/70 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border/60 cc-surface">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
         <div className="flex items-center gap-3">
           <div className="h-2 w-2 rounded-full bg-accent-green/90 shadow-[0_0_20px_rgb(var(--cc-green)/0.25)]" />

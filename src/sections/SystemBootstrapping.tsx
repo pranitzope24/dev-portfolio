@@ -1,6 +1,6 @@
-import { education } from "../content";
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
+import { Section } from "../components/Section";
+import { education } from "../content";
 
 type Props = {
   simpleView: boolean;
@@ -15,16 +15,16 @@ export function SystemBootstrapping({ simpleView }: Props) {
       right={!simpleView ? <Badge tone="green">boot: ok</Badge> : null}
     >
       <div className="grid grid-cols-1 gap-5 p-6 md:grid-cols-3">
-        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 md:col-span-2">
+        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 md:col-span-2 cc-surface">
           <div className="text-xs font-mono text-muted">degree</div>
           <div className="mt-2 text-base font-bold">{education.degree}</div>
           <div className="mt-1 text-sm text-muted">{education.institution}</div>
-          <div className="mt-3 rounded-xl border border-border/60 bg-panel/25 px-3 py-2 text-xs font-mono text-muted">
+          <div className="mt-3 rounded-xl border border-border/60 bg-panel/25 px-3 py-2 text-xs font-mono text-muted cc-surface">
             {education.years}
           </div>
         </div>
 
-        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5">
+        <div className="rounded-xl2 border border-border/60 bg-bg/20 p-5 cc-surface">
           <div className="text-xs font-mono text-muted">focus areas</div>
           <ul className="mt-3 space-y-2 text-sm text-text/90">
             {education.focus.map((f) => (

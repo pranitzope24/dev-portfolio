@@ -1,12 +1,12 @@
 import { lazy, Suspense } from "react";
-import { profile } from "../content";
-import { scrollToId } from "../lib/scroll";
-import { Button } from "../components/Button";
-import { Badge } from "../components/Badge";
-import { SystemCoreFallback } from "../components/SystemCoreFallback";
 import githubSvg from "../assets/github.svg";
 import linkedinSvg from "../assets/linkedin.svg";
 import mailSvg from "../assets/mail.svg";
+import { Badge } from "../components/Badge";
+import { Button } from "../components/Button";
+import { SystemCoreFallback } from "../components/SystemCoreFallback";
+import { profile } from "../content";
+import { scrollToId } from "../lib/scroll";
 
 const LazySystemCore = lazy(() => import("../components/SystemCoreLazy"));
 
@@ -20,15 +20,15 @@ export function Hero({ simpleView }: Props) {
       {!simpleView ? (
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 cc-grid opacity-35" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgb(var(--cc-blue)/0.14),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgb(var(--cc-purple)/0.12),transparent_55%)]" />
         </div>
       ) : null}
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr] md:py-14">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge tone="green">SYSTEM ONLINE</Badge>
+            <Badge tone="green" pulse>
+              SYSTEM ONLINE
+            </Badge>
             <Badge tone="blue">backend::control-center</Badge>
             {!simpleView ? <Badge tone="purple">agentic::lab</Badge> : null}
           </div>

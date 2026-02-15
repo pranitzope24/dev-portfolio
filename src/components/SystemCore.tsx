@@ -268,7 +268,7 @@ export function SystemCore({ simpleView, onNavigate }: Props) {
   if (webgl === null) return <SystemCoreFallback />;
 
   return (
-    <div className="relative h-[480px] w-full overflow-hidden rounded-xl2 border border-border/60 bg-panel/30">
+    <div className="relative h-[480px] w-full overflow-hidden rounded-xl2 border border-border/60 bg-panel/30 cc-surface">
       <div className="absolute inset-0 opacity-60 cc-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgb(var(--cc-blue)/0.15),transparent_60%)]" />
       <Canvas
@@ -284,7 +284,7 @@ export function SystemCore({ simpleView, onNavigate }: Props) {
         <CoreScene onNavigate={onNavigate} />
       </Canvas>
       <div className="pointer-events-none absolute bottom-3 left-0 right-0 flex justify-center">
-        <div className="rounded-full border border-border/60 bg-bg/40 px-3 py-1 text-xs font-mono text-muted">
+        <div className="rounded-full border border-border/60 bg-bg/40 px-3 py-1 text-xs font-mono text-muted cc-surface">
           hover: energize • click: navigate
         </div>
       </div>

@@ -1,7 +1,7 @@
-import { projects } from "../content";
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
 import { Button } from "../components/Button";
+import { Section } from "../components/Section";
+import { projects } from "../content";
 
 type Props = {
   simpleView: boolean;
@@ -13,13 +13,13 @@ export function DeployedServices({ simpleView }: Props) {
       id="services"
       title="Deployed Services"
       subtitle="Projects presented like backend services: purpose, architecture snapshot, and reliability posture."
-      right={!simpleView ? <Badge tone="teal">traffic: normal</Badge> : null}
+      right={!simpleView ? <Badge tone="teal" pulse>traffic: normal</Badge> : null}
     >
       <div className="grid grid-cols-1 gap-5 p-6 md:grid-cols-2">
         {projects.map((p) => (
           <article
             key={p.name}
-            className="group rounded-xl2 border border-border/60 bg-bg/20 p-5 transition hover:border-accent-blue/35 hover:shadow-glow"
+            className="group rounded-xl2 border border-border/60 bg-bg/20 p-5 transition hover:border-accent-blue/35 hover:shadow-glow cc-surface"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -33,7 +33,7 @@ export function DeployedServices({ simpleView }: Props) {
               <div className="text-xs font-mono text-muted">
                 architecture snapshot
               </div>
-              <pre className="mt-2 overflow-auto rounded-xl border border-border/60 bg-panel/30 p-3 text-xs font-mono text-text/90">
+              <pre className="mt-2 overflow-auto rounded-xl border border-border/60 bg-panel/30 p-3 text-xs font-mono text-text/90 cc-surface">
                 {p.snapshot}
               </pre>
             </div>

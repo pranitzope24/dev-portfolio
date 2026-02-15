@@ -1,7 +1,7 @@
-import { skillGroups } from "../content";
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
 import { ChipIcon } from "../components/Icons";
+import { Section } from "../components/Section";
+import { skillGroups } from "../content";
 
 type Props = {
   simpleView: boolean;
@@ -26,7 +26,7 @@ export function TechStackModules({ simpleView }: Props) {
         {skillGroups.map((g) => (
           <div
             key={g.title}
-            className={`rounded-xl2 border bg-bg/20 p-5 ${accentCls[g.accent]}`}
+            className={`rounded-xl2 border bg-bg/20 p-5 cc-surface ${accentCls[g.accent]}`}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -40,7 +40,7 @@ export function TechStackModules({ simpleView }: Props) {
               {g.items.map((it) => (
                 <div
                   key={it.name}
-                  className="flex gap-3 rounded-xl border border-border/50 bg-panel/30 px-4 py-3"
+                  className="flex gap-3 rounded-xl border border-border/50 bg-panel/30 px-4 py-3 cc-surface"
                 >
                   <div className="mt-0.5 shrink-0 text-text/80">
                     <ChipIcon className="h-4 w-4" />

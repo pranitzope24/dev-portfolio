@@ -6,17 +6,22 @@ type Props = {
   subtitle?: string;
   right?: ReactNode;
   children: ReactNode;
+  delay?: number;
 };
 
-export function Section({ id, title, subtitle, right, children }: Props) {
+export function Section({ id, title, subtitle, right, children, delay = 0 }: Props) {
   return (
-    <section id={id} className="scroll-mt-24">
+    <section
+      id={id}
+      className="scroll-mt-24 animate-[sectionReveal_300ms_ease-out_forwards]"
+      style={{ animationDelay: `${delay}ms` }}
+    >
       <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <div className="text-xs font-mono tracking-wide text-muted">
+          <div className="text-xs font-mono uppercase tracking-[0.2em] text-muted">
             component::{id}
           </div>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          <h2 className="mt-2 text-2xl font-bold uppercase tracking-[0.08em] text-transparent bg-clip-text bg-gradient-to-r from-accent-blue/90 to-accent-teal/80 md:text-3xl">
             {title}
           </h2>
           {subtitle ? (

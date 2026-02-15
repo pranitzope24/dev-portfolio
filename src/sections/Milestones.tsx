@@ -1,7 +1,7 @@
-import { achievements } from "../content";
-import { Section } from "../components/Section";
 import { Badge } from "../components/Badge";
 import { NodeIcon } from "../components/Icons";
+import { Section } from "../components/Section";
+import { achievements } from "../content";
 
 type Props = {
   simpleView: boolean;
@@ -20,7 +20,7 @@ export function Milestones({ simpleView }: Props) {
           {achievements.map((a) => (
             <div
               key={`${a.label}-${a.value}`}
-              className="relative rounded-xl2 border border-border/60 bg-bg/20 p-5"
+              className="relative rounded-xl2 border border-border/60 bg-bg/20 p-5 cc-surface"
             >
               {!simpleView ? (
                 <div className="absolute right-4 top-4 text-accent-green/80">
