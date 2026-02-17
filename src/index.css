@@ -31,7 +31,7 @@ html {
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background: linear-gradient(180deg, #0b0e14 0%, #0e1320 100%);
+  background: #0b0e14;
   color: rgb(var(--cc-text));
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -117,9 +117,10 @@ a:hover {
 /* Animated gradient mesh - fixed, full-viewport base layer */
 .global-animated-background {
   position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
