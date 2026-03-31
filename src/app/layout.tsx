@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NeuralMeshBackground from "@/components/NeuralMeshBackground";
 import ScrollReveal from "@/components/ScrollReveal";
+import SoundProvider from "@/components/SoundProvider";
 import { Inter, Space_Grotesk } from "next/font/google";
 
 const inter = Inter({ 
@@ -37,11 +38,13 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-surface-container-lowest text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden min-h-screen">
-        <NeuralMeshBackground />
-        <Navbar />
-        {children}
-        <Footer />
-        <ScrollReveal />
+        <SoundProvider>
+          <NeuralMeshBackground />
+          <Navbar />
+          {children}
+          <Footer />
+          <ScrollReveal />
+        </SoundProvider>
       </body>
     </html>
   );
