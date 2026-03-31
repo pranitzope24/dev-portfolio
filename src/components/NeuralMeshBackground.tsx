@@ -18,9 +18,9 @@ export default function NeuralMeshBackground() {
     mountRef.current.appendChild(bgRenderer.domElement);
 
     const bgGeometry = new THREE.IcosahedronGeometry(20, 1);
-    const bgWireframe = new THREE.WireframeGeometry(bgGeometry);
+    // const bgWireframe = new THREE.WireframeGeometry(bgGeometry);
     const bgMaterial = new THREE.LineBasicMaterial({ color: 0x00d4ff, transparent: true, opacity: 0.08 });
-    const bgNetwork = new THREE.LineSegments(bgWireframe, bgMaterial);
+    // const bgNetwork = new THREE.LineSegments(bgWireframe, bgMaterial);
     
     const pointMat = new THREE.PointsMaterial({
         color: 0xedb1ff,
@@ -31,7 +31,7 @@ export default function NeuralMeshBackground() {
     const bgPoints = new THREE.Points(bgGeometry, pointMat);
 
     const bgGroup = new THREE.Group();
-    bgGroup.add(bgNetwork);
+    // bgGroup.add(bgNetwork);
     bgGroup.add(bgPoints);
     bgScene.add(bgGroup);
 

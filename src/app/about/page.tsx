@@ -23,12 +23,12 @@ export default function About() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(200px,auto)]">
         {/* About Me Profile Sidebar */}
         <div className="md:col-span-5 lg:col-span-4 md:row-span-4 glass-card rounded-xl overflow-hidden group reveal stagger-1">
-          <div className="h-80 overflow-hidden relative">
-            <img alt="Alex Nova headshot" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClr8TBb3OGF6CpsJ2DQ3JzkNNe9efbkG55iZJNFQeKVbzoLQrpqV6yeppcY7glQ__2URptnQwVL-J-xOf58zvH4DeaJlbjnaHZndZff-Wt09pQpSstXGZyrbfsoDw0YQ5c67xDZnZpnbWo7cLhRnPEKb700EUkRkU6ktVRYjIublLXlAOonZyXEUZ2naPZ92nLz6mEwnLMmQVh43cADnHoUNmy8sp-MLMMZwpOURt-OwuTi9ymnesVSyn0CB9I-KVo1i45-MfM8Os" />
+          <div className="h-[400px] overflow-hidden relative">
+            <img alt="Pranit Zope headshot" className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="./about/pranit_image.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-80"></div>
             <div className="absolute bottom-6 left-8">
-              <h2 className="font-headline text-3xl font-black text-on-surface">Alex Nova</h2>
-              <p className="text-primary font-label text-xs tracking-widest uppercase">Senior AI Engineer</p>
+              <h2 className="font-headline text-3xl font-black text-on-surface">Pranit Zope</h2>
+              <p className="text-primary font-label text-xs tracking-widest uppercase">Backend and AI Engineer</p>
             </div>
           </div>
           <div className="p-8">
