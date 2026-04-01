@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import ContactMesh from "@/components/ContactMesh";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -26,11 +26,11 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-label text-[0.75rem] uppercase tracking-widest text-on-surface-variant mb-4">Communication Core</h3>
-                <a className="text-2xl font-headline font-bold text-on-surface hover:text-primary-container transition-colors duration-300" href="mailto:hello@galactichorizon.com">hello@galactichorizon.com</a>
+                <a className="text-2xl font-headline font-bold text-on-surface hover:text-primary-container transition-colors duration-300" href="mailto:pranit.t.zope@gmail.com">pranit.t.zope@gmail.com</a>
               </div>
               <div>
                 <h3 className="font-label text-[0.75rem] uppercase tracking-widest text-on-surface-variant mb-4">Operational Base</h3>
-                <p className="text-2xl font-headline font-bold text-on-surface">San Francisco, CA</p>
+                <p className="text-2xl font-headline font-bold text-on-surface">Gurugram, IN</p>
                 <p className="text-on-surface-variant mt-2">Remote Work Available Globally</p>
               </div>
               <div>

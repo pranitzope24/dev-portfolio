@@ -50,11 +50,80 @@ export default function HeroMesh() {
 
     let animationFrameId: number;
 
+    const colorPrimary = new THREE.Color(0x00d4ff); // primary_container
+    const colorSecondary = new THREE.Color(0xedb1ff); // secondary
+    const colorTertiary = new THREE.Color(0xffb4ab); // error/pinkish
+
+    const originalPositions = geometry.attributes.position.clone();
+    const originalWireframePositions = wireframe.attributes.position.clone();
+
+    let currentSpeed = 0.0; // Starts dormant until terminal wakes it up
+    let targetSpeed = 0.0;
+    let accumulatedTime = 0;
+    let lastTime = performance.now();
+
+    const handleMeshActivity = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      targetSpeed = customEvent.detail?.active ? 1.0 : 0.0;
+    };
+    window.addEventListener("mesh-activity", handleMeshActivity);
+
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
-      heroGroup.rotation.y += 0.005;
-      heroGroup.rotation.x += 0.002;
+      const now = performance.now();
+      const delta = now - lastTime;
+      lastTime = now;
+
+      // Smoothly interpolate current speed towards target speed
+      currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+
+      // Accumulate time based on speed for the breath effect
+      accumulatedTime += delta * 0.0012 * currentSpeed;
+
+      heroGroup.rotation.y += 0.005 * currentSpeed;
+      heroGroup.rotation.x += 0.002 * currentSpeed;
+
+      // Breath effect: animate individual vertices in a waveform
+      const time = accumulatedTime;
+      
+      const posAttribute = geometry.attributes.position;
+      for (let i = 0; i < posAttribute.count; i++) {
+        const x = originalPositions.getX(i);
+        const y = originalPositions.getY(i);
+        const z = originalPositions.getZ(i);
+        
+        const wave = Math.sin(x * 1.5 + time) * Math.cos(y * 1.5 + time) * Math.sin(z * 1.5 + time);
+        const offset = 0.25 * wave * currentSpeed; // Reduce wave amplitude based on speed
+        
+        const length = Math.sqrt(x*x + y*y + z*z) || 1;
+        posAttribute.setXYZ(i, x + (x/length)*offset, y + (y/length)*offset, z + (z/length)*offset);
+      }
+      posAttribute.needsUpdate = true;
+
+      const wirePosAttribute = wireframe.attributes.position;
+      for (let i = 0; i < wirePosAttribute.count; i++) {
+        const x = originalWireframePositions.getX(i);
+        const y = originalWireframePositions.getY(i);
+        const z = originalWireframePositions.getZ(i);
+        
+        const wave = Math.sin(x * 1.5 + time) * Math.cos(y * 1.5 + time) * Math.sin(z * 1.5 + time);
+        const offset = 0.25 * wave * currentSpeed; // Reduce wave amplitude based on speed
+        
+        const length = Math.sqrt(x*x + y*y + z*z) || 1;
+        wirePosAttribute.setXYZ(i, x + (x/length)*offset, y + (y/length)*offset, z + (z/length)*offset);
+      }
+      wirePosAttribute.needsUpdate = true;
+
+      // Make dormancy highly visible with scale and opacity
+      heroGroup.scale.setScalar(0.7 + 0.3 * currentSpeed);
+      lineMat.opacity = 0.05 + 0.25 * currentSpeed;
+      pointMat.opacity = 0.2 + 0.6 * currentSpeed;
+
+      // Fade colors back and forth smoothly between cyan/blue and purple
+      const t = (Math.sin(time * 0.8) + 1) / 2; // 0.0 to 1.0
+      lineMat.color.lerpColors(colorPrimary, colorSecondary, t);
+      pointMat.color.lerpColors(colorSecondary, colorPrimary, t);
 
       heroRenderer.render(heroScene, heroCamera);
     };
@@ -71,6 +140,7 @@ export default function HeroMesh() {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("mesh-activity", handleMeshActivity);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
 

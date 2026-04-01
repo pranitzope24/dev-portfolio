@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,12 +15,27 @@ export default function Navbar() {
     { name: "About", path: "/about" },
   ];
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl border-b border-[#3c494e]/20 shadow-[0_0_20px_rgba(0,212,255,0.05)] transition-all duration-500 ease-in-out">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-        <div className="text-xl font-black tracking-tighter text-[#e5e2e1] font-headline">
-          Celestial.Dev
-        </div>
+    <header>
+      <nav className="fixed top-0 z-50 w-full px-2 group">
+        <div className={`mx-auto mt-2 max-w-7xl px-6 transition-all duration-300 lg:px-12 ${isScrolled ? "bg-[#131313]/80 max-w-4xl rounded-full border border-[#3c494e]/40 backdrop-blur-xl lg:px-8 shadow-[0_4px_30px_-10px_rgba(0,212,255,0.1)]" : "bg-[#131313]/60 backdrop-blur-xl border-x-0 border-t-0 border-b border-[#3c494e]/20 shadow-[0_0_20px_rgba(0,212,255,0.05)] max-w-full mt-0 px-8"}`}>
+          <div className="relative flex flex-wrap items-center justify-between h-20 transition-all duration-300">
+            <Link href="/" className="flex items-center gap-3 group/logo">
+              <Image src="/logo.png" alt="Celestial.Dev Logo" width={32} height={32} className="object-contain w-auto h-auto" style={{"height": "auto", "width": "auto"}} />
+              <div className="text-xl font-black tracking-tighter text-[#e5e2e1] font-headline group-hover/logo:text-[#00d4ff] transition-colors duration-300">
+                Celestial.Dev
+              </div>
+            </Link>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10 font-headline tracking-tight">
@@ -51,7 +68,9 @@ export default function Navbar() {
             Connect
           </Link>
         </div>
-      </div>
-    </nav>
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 }
