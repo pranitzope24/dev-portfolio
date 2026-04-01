@@ -132,6 +132,79 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Feature Section: The Architecture */}
+      <section className="bg-surface-container-low py-32 relative">
+        <div className="max-w-7xl mx-auto px-10">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+            <div className="max-w-2xl reveal stagger-1">
+              <h2 className="text-headline-md text-secondary-fixed-dim mb-4 uppercase font-label tracking-widest">Architectural Pillars</h2>
+              <p className="text-5xl font-black tracking-tight text-on-surface leading-tight">Constructing resilient foundations for an automated future.</p>
+            </div>
+            <div className="font-mono text-xs text-primary-container/60 flex items-center gap-2 mb-2 reveal stagger-2">
+              <span className="w-12 h-[1px] bg-primary-container/20"></span>
+              SCROLL_FOR_INTEL
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Feature 1 */}
+            <div className="space-y-6 group reveal stagger-3">
+              <div className="w-full h-64 rounded-2xl overflow-hidden bg-surface-container-lowest border border-outline-variant/10 relative">
+                <img alt="Project Gallery Visualization" className="w-full h-full object-cover opacity-40 grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="A high-tech 3D grid or gallery of translucent server racks and data structures, glowing with neon blue and violet accents. Minimalist and sleek, representing a curated collection of backend and AI project infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0YrWAPp7FMwVckhtZ9cUY2w137IPW1ljv-O-V-zw7U2VPM_T9OrZqBbO9NZHGIvbMPE2bStbEr45zn8wzJY2hx-ckPXA4GlL4P7Je3QIJI7kiMtL51VTcZ-Sj3mdAelMgyayRk6oiPUcGUth7-ax29sg8vfrGvCweYzp0it_GiyD35SCntLvD1tAimyM5tpvtLhnUxGMsiInzWl_wbdtJfHXA-FAc3RHvYqxcHPgboQA6NbAOavqgWME-B_sTbGdhtySc0fry-_I" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+              </div>
+              <h4 className="text-2xl font-bold text-on-surface">Project Gallery</h4>
+              <p className="text-on-surface-variant leading-relaxed">Highly available, low-latency edge computing clusters designed for real-time model inference at global scale.</p>
+              <Link className="inline-flex items-center gap-2 text-primary-fixed hover:text-primary transition-colors font-bold uppercase text-xs tracking-widest font-label" href="#">
+                Explore Protocols <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+            {/* Feature 2 */}
+            <div className="space-y-6 group mt-10 reveal stagger-4">
+              <div className="w-full h-64 rounded-2xl overflow-hidden bg-surface-container-lowest border border-outline-variant/10 relative">
+                <img alt="Career Journey Visualization" className="w-full h-full object-cover opacity-40 grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="A futuristic, high-fidelity 3D abstract visualization of a career timeline or data path, with glowing nodes and flowing connections in electric blue and vibrant violet on a dark obsidian background. Cinematic lighting, shallow depth of field, representing professional growth and journey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjrur4665qRr5GVg9N9b8FHvH-W0hcr-YNO5P9hPn5Stmux6Vp9Zd9BJ6oNAk87Wc_Q4-p7a3RTsJUV-XlcLoHARjOi_kvbB9IiuOb7T4zuedwO74msau8np7c6H-0GZeRG-fwTTqQ2In008vf8JKwPM-rXSxSx-fvN4449toRzmZvUzIxtMDJ4VHUGXUtNAu-UbaCJcQ0yEMly0KySJC_KSDtfHkfCNKX8G18QAPiFW4TM6FClApuJAM9O3KWrTalKMACsC8hOyc" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+              </div>
+              <h4 className="text-2xl font-bold text-on-surface">Career Journey</h4>
+              <p className="text-on-surface-variant leading-relaxed">Rust-based backend services engineered for zero-trust security and sub-millisecond response times under heavy load.</p>
+              <Link className="inline-flex items-center gap-2 text-primary-fixed hover:text-primary transition-colors font-bold uppercase text-xs tracking-widest font-label" href="#">
+                Architecture Specs <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+            {/* Feature 3 */}
+            <div className="space-y-6 group mt-20 reveal stagger-5">
+              <div className="w-full h-64 rounded-2xl overflow-hidden bg-surface-container-lowest border border-outline-variant/10 relative">
+                <img alt="The Architect Visualization" className="w-full h-full object-cover opacity-40 grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="An abstract 3D representation of a solitary, glowing geometric structure floating in a deep space void. Sharp, crystalline edges with electric blue and violet light leaks, symbolizing the precision of system design and the 'Architect' persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHoMO52J84c8wkxmAKdc_VZcCGP4M1SrIAJ3bjKhu1t_aIma8ag1fnSatoEkK-3Ko3EaIfJkel1n-Zm096iwIb37C_E89mrgRaBRQgk8r7c8WFTf1IKo0ot6YkTNUOgLF2bpLWARX3dFy8ouGxaxJme3rFgrHYAdeVdPojzCP2vXOoFDgx0vJfInAfCz9DNGrz1cAX9a_uSteywMh2wn0nerKUBueo3ukNcDDLRKOo5hleDpR7k6zkNWEs6TrwUJ0wljzUSP75oGQ" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+              </div>
+              <h4 className="text-2xl font-bold text-on-surface">The Architect</h4>
+              <p className="text-on-surface-variant leading-relaxed">Multi-cloud deployment strategies utilizing custom Kubernetes operators for seamless vertical and horizontal scaling.</p>
+              <Link className="inline-flex items-center gap-2 text-primary-fixed hover:text-primary transition-colors font-bold uppercase text-xs tracking-widest font-label" href="#">
+                Scale Documentation <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-40 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-primary-container/5 to-transparent"></div>
+        </div>
+        <div className="max-w-4xl mx-auto text-center space-y-10 reveal active">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-on-surface">Ready to transcend the <span className="gradient-text">standard?</span></h2>
+          <p className="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">Currently accepting high-impact architectural challenges and advisory roles for AI-first enterprises.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <button className="bg-on-surface text-surface-container-lowest px-12 py-5 rounded-full font-black text-xl hover:bg-primary transition-all">
+              Initialize Contact
+            </button>
+            <button className="glass-panel px-12 py-5 rounded-full font-black text-xl text-on-surface border border-outline-variant/30 hover:bg-surface-bright/50 transition-all">
+              Fetch Resumé
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
