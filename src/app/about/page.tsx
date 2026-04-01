@@ -1,6 +1,38 @@
-import Link from "next/link";
+"use client";
+import { Globe } from "@/components/ui/cobe-globe";
+import { GLOBE_ARCS, GLOBE_MARKERS, INDIAN_ARCS, INDIAN_MARKERS } from "@/constants/globe";
+import { useMemo, useState } from "react";
 
 export default function About() {
+  const [focusMode, setFocusMode] = useState<'india' | null>(null);
+
+  const activeMarkers = useMemo(() => {
+    if (focusMode === 'india') {
+      return INDIAN_MARKERS;
+    }
+    return GLOBE_MARKERS;
+  }, [focusMode]);
+
+  const activeArcs = useMemo(() => {
+    if (focusMode === 'india') {
+      return INDIAN_ARCS;
+    }
+    return GLOBE_ARCS;
+  }, [focusMode]);
+
+  const handleMarkerClick = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (id === 'mumbai' || id === 'delhi') {
+      setFocusMode('india');
+    }
+  };
+
+  const handleGlobeClick = () => {
+    setFocusMode(null);
+  };
+
+  const focusAngles: [number, number] | undefined = focusMode === 'india' ? [3.34, 0.38] : undefined;
+
   return (
     <main className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen relative">
       <div className="parallax-layer absolute top-1/4 -left-20 w-96 h-96 bg-primary opacity-[0.03] blur-[120px] rounded-full pointer-events-none" data-depth="0.1"></div>
@@ -54,27 +86,43 @@ export default function About() {
             </div>
           </div>
         </div>
-        
+
         {/* Global Expedition */}
-        <div className="md:col-span-7 lg:col-span-8 md:row-span-3 glass-card rounded-xl p-8 flex flex-col md:flex-row gap-8 group overflow-hidden relative reveal stagger-2">
-          <div className="flex-1 flex flex-col justify-center">
-            <div className="flex items-center gap-4 mb-6">
+        <div className="md:col-span-7 lg:col-span-8 md:row-span-3 glass-card rounded-xl p-8 flex flex-col gap-6 group overflow-hidden relative reveal stagger-2">
+          {/* Top Section: Text */}
+          <div className="flex flex-col justify-start z-10">
+            <div className="flex items-center gap-4 mb-4">
               <span className="material-symbols-outlined text-primary-container text-4xl group-hover:rotate-12 transition-transform duration-500">public</span>
               <h3 className="font-headline text-2xl font-bold uppercase tracking-widest text-on-surface">Global Expedition</h3>
             </div>
-            <p className="text-on-surface-variant text-base leading-relaxed mb-8">
-              Navigating the intersections of technology and culture across the globe. From the neon-lit megalopolises of East Asia to the silicon-hubs of Northern Europe, I explore how different urban environments cultivate unique technological philosophies and innovative ecosystems.
+            <p className="text-on-surface-variant text-base leading-relaxed mb-4">
+              Navigating the intersections of technology and culture across the globe. From the neon-lit megalopolises of East Asia to the silicon-hubs of Northern Europe.
             </p>
-            <div>
-              <Link className="group/link flex items-center gap-2 text-primary-fixed text-xs font-label uppercase tracking-widest transition-all" href="#">
-                <span>View Travel Log</span>
-                <span className="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-              </Link>
-              <div className="h-px w-24 bg-primary-fixed/30 mt-1"></div>
-            </div>
+            
           </div>
-          <div className="w-full md:w-64 h-64 md:h-auto rounded-lg overflow-hidden border border-outline-variant/10 shadow-2xl shrink-0">
-            <img alt="Futuristic city skyline" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOCD_3EdqQcz0G4ZEkHSZfONwqryLQZ5g4-CR1P1e51QwGIAppeholfP-fnZNttFjIjjXrcim64416FpMKn1dOwQdCp6-d8pflYZvhUFEBAP4G3vbqZwK9X2RqRavR8uynqjy5YytVzyGT4CYnwm-ZJFH068qFACfcXoCs_vo_qOBLu_ajigsudRpRU0eUahEn7neZDLHurgF-KIvbLNH7VbxQXpl-n1fgyCipZyQSgV24JqNptbY9Wa0g2SCqKNXG08S2aIQ1rGs" />
+          {/* Bottom Section: Globe */}
+          <div className="flex-1 w-full flex items-center justify-center shrink-0 min-h-[300px] -mt-12 z-0">
+            <div className="w-[120%] max-w-[600px] aspect-square relative flex items-center justify-center origin-center">
+              <Globe
+                markers={activeMarkers}
+                arcs={activeArcs}
+                markerColor={[0, 0.83, 1]}
+                baseColor={[1, 1, 1]}
+                arcColor={[0, 0.83, 1]}
+                glowColor={[0.05, 0.05, 0.05]}
+                dark={1}
+                mapBrightness={10}
+                markerSize={focusMode === 'india' ? 0.01 : 0.03}
+                arcWidth={focusMode === 'india' ? 0.35 : 0.5}
+                markerElevation={0.015}
+                mapSamples={focusMode === 'india' ? 35000 : 16000}
+                focusAngles={focusAngles}
+                zoom={focusMode === 'india' ? 4.3 : 1}
+                highlightedMarkerIds={focusMode === null ? ['delhi', 'mumbai'] : []}
+                onMarkerClick={handleMarkerClick}
+                onGlobeClick={handleGlobeClick}
+              />
+            </div>
           </div>
         </div>
         
