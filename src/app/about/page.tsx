@@ -8,7 +8,7 @@ export default function About() {
       
       <header className="mb-16 reveal active">
         <div className="inline-block mb-4 px-4 py-1 rounded-full border border-outline-variant/20 bg-surface-container-low">
-          <span className="font-label text-xs uppercase tracking-[0.2em] text-secondary">Personnel File // A. Nova</span>
+          <span className="font-label text-xs uppercase tracking-[0.2em] text-secondary">Personnel File // P. ZOPE</span>
         </div>
         <div className="relative">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter font-headline text-on-surface leading-[0.9] mb-6 relative z-10">
