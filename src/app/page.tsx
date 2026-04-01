@@ -1,10 +1,15 @@
-import Link from "next/link";
 import HeroMesh from "@/components/HeroMesh";
+import { ShaderAnimation } from "@/components/ui/shader-animation";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="relative pt-20">
-      <section className="relative min-h-[921px] flex items-center px-8 max-w-7xl mx-auto">
+      <div className="absolute top-0 left-0 w-full h-[100vh] min-h-[921px] -z-10 overflow-hidden pointer-events-none">
+        <ShaderAnimation />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+      </div>
+      <section className="relative z-10 min-h-[921px] flex items-center px-8 max-w-7xl mx-auto">
         <div className="parallax-layer absolute top-1/4 -left-20 w-96 h-96 bg-primary opacity-[0.05] blur-[120px] rounded-full pointer-events-none" data-depth="0.1"></div>
         <div className="parallax-layer absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary opacity-[0.05] blur-[120px] rounded-full pointer-events-none" data-depth="0.2"></div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
@@ -46,20 +51,39 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[500px] reveal stagger-2">
-            <div className="relative w-full aspect-square max-w-md">
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-8 min-h-[500px] reveal stagger-2">
+            <div className="relative w-full aspect-[4/5] max-w-md">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-secondary/10 rounded-full blur-3xl opacity-30"></div>
               <div className="relative w-full h-full glass-card rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-center">
                 <HeroMesh />
-                <div className="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-lg flex items-center justify-between pointer-events-none z-20">
-                  <div className="flex flex-col">
-                    <span className="font-label text-[0.5rem] tracking-widest text-[#00d4ff]">NODE_STATUS</span>
-                    <span className="font-headline font-bold text-sm tracking-tight">STABLE_MESH_SYNC</span>
+                {/* Terminal Box Segment Overlaid on Mesh */}
+                <div className="group absolute bottom-6 left-6 right-6 surface_container_highest bg-[#2a2a2a]/80 backdrop-blur-md rounded border border-[#3c494e]/40 p-4 font-mono shadow-[0_4px_30px_-10px_rgba(0,212,255,0.2)] z-20 cursor-default">
+                  <div className="flex gap-2 mb-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffb4ab]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#feb528]"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#00d4ff]"></div>
                   </div>
-                  <span className="material-symbols-outlined text-primary-container animate-pulse">sensors</span>
+                  <div className="space-y-1.5 text-left font-mono tracking-wide text-xs leading-tight opacity-75 group-hover:opacity-100 group-hover:brightness-125 transition-all duration-500">
+                    <div className="flex text-[#a8e8ff]">
+                      <span className="opacity-80 shrink-0">alex-nova:~$</span>
+                      <span className="ml-2">deploy-neural-mesh</span>
+                    </div>
+                    <div className="text-[#bbc9cf]">
+                      Init spatial parameters...
+                    </div>
+                    <div className="text-[#edb1ff] font-bold break-all">
+                      Success: Mesh established [0x4F2...]
+                    </div>
+                    <div className="flex text-[#a8e8ff] mt-1">
+                      <span className="opacity-80 shrink-0">alex-nova:~$</span>
+                      <span className="ml-2 animate-pulse font-bold">|</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            
+
           </div>
         </div>
       </section>
