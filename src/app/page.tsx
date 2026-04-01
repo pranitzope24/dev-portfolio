@@ -1,4 +1,5 @@
 import HeroMesh from "@/components/HeroMesh";
+import InteractiveCodeCard from "@/components/InteractiveCodeCard";
 import { ShaderAnimation } from "@/components/ui/shader-animation";
 import Link from "next/link";
 
@@ -57,29 +58,7 @@ export default function Home() {
               <div className="relative w-full h-full glass-card rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-center">
                 <HeroMesh />
                 {/* Terminal Box Segment Overlaid on Mesh */}
-                <div className="group absolute bottom-6 left-6 right-6 surface_container_highest bg-[#2a2a2a]/80 backdrop-blur-md rounded border border-[#3c494e]/40 p-4 font-mono shadow-[0_4px_30px_-10px_rgba(0,212,255,0.2)] z-20 cursor-default">
-                  <div className="flex gap-2 mb-3">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffb4ab]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#feb528]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#00d4ff]"></div>
-                  </div>
-                  <div className="space-y-1.5 text-left font-mono tracking-wide text-xs leading-tight opacity-75 group-hover:opacity-100 group-hover:brightness-125 transition-all duration-500">
-                    <div className="flex text-[#a8e8ff]">
-                      <span className="opacity-80 shrink-0">pranit-zope:~$</span>
-                      <span className="ml-2">deploy-neural-mesh</span>
-                    </div>
-                    <div className="text-[#bbc9cf]">
-                      Init spatial parameters...
-                    </div>
-                    <div className="text-[#edb1ff] font-bold break-all">
-                      Success: Mesh established [0x4F2...]
-                    </div>
-                    <div className="flex text-[#a8e8ff] mt-1">
-                      <span className="opacity-80 shrink-0">pranit-zope:~$</span>
-                      <span className="ml-2 animate-pulse font-bold">|</span>
-                    </div>
-                  </div>
-                </div>
+                <InteractiveCodeCard />
               </div>
             </div>
             
